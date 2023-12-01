@@ -99,13 +99,13 @@ docker compose stop
 `admin/` - При стандартных настройках Login: root | Password: root
 
 Получение информации об Item по его id и оформление заказа с помощью кнопки Buy:
-`payment/item/{item_id}/`
+`item/{item_id}/`
 
 Получение session_id для оформления покупки на Stripe:
-`payment/buy/{item_id}/`
+`buy/{item_id}/`
 
 Покупка всех товаров в Order:
-`payment/order_buy/{order_id}/`
+`order_buy/{order_id}/`
 
 # Выполненные дополнительные задачи:
 · Запуск используя Docker
