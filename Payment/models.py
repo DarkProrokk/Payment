@@ -44,4 +44,4 @@ class Order(models.Model):
     discount = models.ForeignKey(Discount, on_delete=models.SET_NULL, blank=True, null=True)
 
     def __str__(self):
-        return self.pk
+        return f'Order ID: {self.pk}'

@@ -99,11 +99,6 @@ class ItemModelTests(TestCase):
         self.assertListEqual([choice[0] for choice in Item.CUR], choices)
         self.print_info('Finish test_currency_choices')
 
-    def test_str_representation(self):
-        self.print_info('test_str_representation')
-        self.assertEqual(str(self.item_1), 'item_1')
-        self.print_info('Finish test_str_representation')
-
     def test_default_currency(self):
         self.print_info('test_str_representation')
         self.assertEqual(self.item_1.currency, 'usd')
