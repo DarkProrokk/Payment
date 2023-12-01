@@ -161,20 +161,20 @@ class TestView(TestCase):
     def test_item_view(self):
         self.print_info('test_item_view')
         item_id = Item.objects.first()
-        response = self.client.get(f'/payment/item/{item_id.id}/')
+        response = self.client.get(f'/item/{item_id.id}/')
         self.assertEqual(response.status_code, 200)
         self.print_info('Finish test_item_view')
 
     def test_buy_item(self):
         self.print_info('test_buy_item')
         item_id = Item.objects.first()
-        response = self.client.get(f'/payment/buy/{item_id.id}/', follow=True)
+        response = self.client.get(f'/buy/{item_id.id}/', follow=True)
         self.assertEqual('session_id' in response.content.decode(), True)
         self.print_info('Finish test_buy_item')
 
     def test_buy_empty_order(self):
         self.print_info('test_buy_order')
         order = Order.objects.first()
-        response = self.client.get(f'/payment/order_buy/{order.id}/', follow=True)
+        response = self.client.get(f'/order_buy/{order.id}/', follow=True)
         self.assertEqual(response.content.decode(), 'Order cannot be empty. Add Item')
         self.print_info('Finish test_buy_order')

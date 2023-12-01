@@ -1,7 +1,7 @@
 var button = document.getElementById('myButton');
 button.addEventListener('click', function() {
     var butValue = button.value;
-    fetch(`http://localhost:8000/payment/buy/${butValue}/`)
+    fetch(`http://localhost:8000/buy/${butValue}/`)
         .then(response => response.json())
         .then(data => {
             if (data['error']) {
