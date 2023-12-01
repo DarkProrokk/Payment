@@ -15,7 +15,7 @@ class Item(models.Model):
     currency = models.CharField(max_length=30, choices=CUR, default='usd')
 
     def __str__(self):
-        return self.name
+        return f'{self.name} --- ID {self.pk}'
 
 
 class Discount(models.Model):
@@ -42,3 +42,6 @@ class Order(models.Model):
     items = models.ManyToManyField(Item, blank=True)
     tax = models.ForeignKey(Tax, on_delete=models.SET_NULL, blank=True, null=True)
     discount = models.ForeignKey(Discount, on_delete=models.SET_NULL, blank=True, null=True)
+
+    def __str__(self):
+        return self.pk

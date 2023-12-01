@@ -45,8 +45,6 @@ class TaxModelTests(TestCase):
 
     def setUp(self):
         print('-' * 30)
-        if Item.objects.count() > 0:
-            raise ValidationError('Удалите тестовую базу данных')
         self.print_info('Start setUp')
         self.tax_1 = Tax.objects.create(display_name='tax_1', description='description_1', percentage=10,
                                         tax_hash='123', inclusive=False)

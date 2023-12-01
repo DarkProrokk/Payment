@@ -6,13 +6,15 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
     <link rel="stylesheet" href="{% static 'Payment/css/style.css' %}">
+    <title>Document</title>
 </head>
 <body>
-{% block content %}
-{% endblock %}
-    <script src="https://js.stripe.com/v3/"></script>
-    <script src="{% static 'Payment/js/stripe_redirect.js' %}"></script>
+<h1>Endpoint:</h1>
+<ul class="border">
+  <li>Получение информации об Item по его id и оформление заказа с помощью кнопки Buy: <h4>payment/item/{item_id}/</h4></li>
+  <li>ЭПолучение session_id для оформления покупки на Stripe: <h4>payment/buy/{item_id}/</h4></li>
+  <li>Покупка всех товаров в Order: <h4>payment/order_buy/{order_id}/</h4></li>
+</ul>
 </body>
 </html>

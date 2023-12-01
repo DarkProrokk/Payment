@@ -9,7 +9,7 @@ from .models import Item, Order
 stripe.api_key = getenv('STRIPE_SECRET_KEY')
 
 
-def session_data_func(item:Item, data: dict) -> dict:
+def session_data_func(item: Item, data: dict) -> dict:
     """
        Adds an item to the session data dictionary.
        Args:
@@ -112,3 +112,7 @@ def success_view(request):
 
 def cancel_view(request):
     return JsonResponse({'success': False})
+
+
+def index(request):
+    return render(request, 'Payment/index.html')

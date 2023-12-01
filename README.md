@@ -98,7 +98,7 @@ docker compose stop
 
 `admin/` - При стандартных настройках Login: root | Password: root
 
-Получения информации об Item по его id и оформление заказа с помощью кнопки Buy:
+Получение информации об Item по его id и оформление заказа с помощью кнопки Buy:
 `payment/item/{item_id}/`
 
 Получение session_id для оформления покупки на Stripe:
