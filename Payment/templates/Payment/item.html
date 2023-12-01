@@ -1,0 +1,19 @@
+{% extends 'Payment/index.html' %}
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        <div class="item__block">
+            <div class="item__item">
+                <h2 class="item__title">{{ item.name.upper }}</h2>
+                <h2 class="item__desc">Описание:</h2>
+                <div class="item__description">{{ item.description }}</div>
+                <div class="item__price">
+                    {{ item.price }} {{ item.currency.upper }}
+                </div>
+                <button type="button" class="item__addcart" id="myButton" value={{ item.pk }}>
+                    Buy
+                </button>
+            </div>
+        </div>
+    </form>
+{% endblock %}

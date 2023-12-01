@@ -1,0 +1,7 @@
+.idea
+venv
+db.sqlite3
+requirements.in
+.env.git
+requirements-windows.txt
+.gitignore

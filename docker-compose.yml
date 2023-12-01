@@ -1,0 +1,42 @@
+version: "3.8"
+
+services:
+  db:
+    container_name: db
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: PaymentDB
+    ports:
+      - "5434:5432"
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U root -d PaymentDB" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+    networks:
+      - payment
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  web:
+    build: .
+    container_name: payment
+    restart: always
+
+    ports:
+      - "8000:8000"
+    depends_on:
+        db:
+          condition: service_healthy
+    networks:
+      - payment
+
+networks:
+  payment:
+    driver: bridge
+volumes:
+  db_data:
